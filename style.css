@@ -1,0 +1,864 @@
+/* ================================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --terra: #bf7c72;
+    --terra-dark: #a9655c;
+    --cream: #f8f3ed;
+    --cream-2: #f1e8df;
+    --gold: #c5a477;
+    --ink: #514744;
+    --muted: #81736d;
+    --white: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #fffdfa;
+    color: var(--ink);
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* ================================
+   CABEÇALHO
+================================ */
+
+.site-header {
+    height: 88px;
+    padding: 12px clamp(20px, 6vw, 88px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: rgba(255, 253, 250, 0.96);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    border-bottom: 1px solid #eee5dc;
+}
+
+.brand img {
+    width: 142px;
+    height: 62px;
+    object-fit: contain;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 30px);
+    font-size: 13px;
+    color: #665a55;
+}
+
+.main-nav a {
+    padding: 8px 0;
+    position: relative;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    color: var(--terra-dark);
+}
+
+.main-nav a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 25px;
+    color: var(--ink);
+}
+
+
+/* ================================
+   BOTÕES
+================================ */
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 23px;
+    border: 1px solid var(--terra);
+    background: var(--terra);
+    color: #fff;
+    border-radius: 3px;
+    font: 600 13px "DM Sans", sans-serif;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.button:hover {
+    background: var(--terra-dark);
+    border-color: var(--terra-dark);
+    transform: translateY(-1px);
+}
+
+.button-small {
+    padding: 10px 16px;
+    font-size: 12px;
+}
+
+.button-outline {
+    background: transparent;
+    color: var(--terra-dark);
+}
+
+.button-outline:hover {
+    color: #fff;
+}
+
+.button-light {
+    background: #fff;
+    color: var(--terra-dark);
+    border-color: #fff;
+}
+
+
+/* ================================
+   TEXTOS E TÍTULOS
+================================ */
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--terra-dark);
+}
+
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+h1,
+h2 {
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    line-height: 1.13;
+}
+
+h1 {
+    font-size: clamp(43px, 5.5vw, 72px);
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: clamp(34px, 4vw, 49px);
+    margin: 14px 0 20px;
+}
+
+h1 em,
+h2 em {
+    font-style: normal;
+    color: var(--terra);
+}
+
+.text-link {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--terra-dark);
+    border-bottom: 1px solid #d7b8a8;
+    padding-bottom: 4px;
+}
+
+
+/* ================================
+   PÁGINA INICIAL - HERO
+================================ */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 620px;
+    background: var(--cream);
+}
+
+.hero-copy {
+    padding: clamp(55px, 8vw, 115px) clamp(28px, 8vw, 120px);
+    align-self: center;
+}
+
+.hero-copy>p {
+    max-width: 450px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.hero-note {
+    margin-top: 55px;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
+.hero-note span {
+    color: var(--gold);
+    font-size: 20px;
+    margin-right: 8px;
+}
+
+.hero-image {
+    position: relative;
+    min-height: 550px;
+    overflow: hidden;
+}
+
+.hero-image>img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    background: rgba(255, 253, 250, 0.92);
+    padding: 14px 20px;
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+}
+
+.image-caption strong {
+    font-family: "Playfair Display", serif;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.image-caption span {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+
+/* ================================
+   SEÇÕES
+================================ */
+
+.section {
+    padding: clamp(60px, 8vw, 105px) clamp(24px, 8vw, 120px);
+}
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.section-lead {
+    max-width: 510px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.soft-section {
+    background: #f8f4ef;
+}
+
+.section-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.soft-section>h2 {
+    max-width: 600px;
+    margin-bottom: 38px;
+}
+
+
+/* ================================
+   CARDS DE TRATAMENTOS
+================================ */
+
+.treatment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.treatment-card {
+    background: #fffdfa;
+    border: 1px solid #eadfd5;
+    padding: 28px;
+    min-height: 235px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card-number {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+}
+
+.treatment-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 23px;
+    font-weight: 400;
+    margin: 22px 0 8px;
+}
+
+.treatment-card p {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+.treatment-card strong {
+    color: var(--terra-dark);
+    font-size: 16px;
+    margin-top: auto;
+}
+
+.treatment-card .text-link {
+    margin-top: 18px;
+}
+
+.center {
+    text-align: center;
+    margin-top: 35px;
+}
+
+.full-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.full-grid .treatment-card {
+    min-height: 280px;
+}
+
+.notice {
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+
+/* ================================
+   SOBRE A PROFISSIONAL
+================================ */
+
+.about-preview {
+    display: grid;
+    grid-template-columns: minmax(250px, 0.8fr) 1fr;
+    gap: clamp(35px, 7vw, 95px);
+    align-items: center;
+}
+
+.about-preview>img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    object-position: center 25%;
+}
+
+.about-preview p {
+    color: var(--muted);
+    max-width: 550px;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) 1.2fr;
+    gap: clamp(35px, 7vw, 90px);
+    align-items: start;
+}
+
+.profile-photo {
+    width: 100%;
+    max-height: 690px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.profile-layout p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.subheading {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 28px 0 12px;
+}
+
+.credential-list {
+    padding-left: 19px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.credential-list li {
+    padding: 5px 0;
+}
+
+.profile-layout .button {
+    margin-top: 22px;
+}
+
+
+/* ================================
+   BANNER DE AGENDAMENTO
+================================ */
+
+.cta-band {
+    background: var(--terra);
+    color: white;
+    padding: 48px clamp(24px, 8vw, 120px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.cta-band .eyebrow {
+    color: #f4dfd4;
+}
+
+.cta-band h2 {
+    margin: 8px 0 0;
+    font-size: 38px;
+}
+
+
+/* ================================
+   CABEÇALHO DAS PÁGINAS INTERNAS
+================================ */
+
+.page-hero {
+    background: var(--cream);
+    text-align: center;
+    padding: 75px 20px 70px;
+}
+
+.page-hero h1 {
+    font-size: clamp(42px, 5vw, 62px);
+    margin: 15px 0;
+}
+
+.page-hero p {
+    color: var(--muted);
+    margin: 0;
+}
+
+
+/* ================================
+   AGENDAMENTO
+================================ */
+
+.booking-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(35px, 7vw, 90px);
+    align-items: start;
+}
+
+.booking-aside p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.mini-info {
+    margin-top: 35px;
+    padding: 22px;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 12px;
+}
+
+.mini-info span {
+    color: var(--muted);
+}
+
+.mini-info a {
+    color: var(--terra-dark);
+}
+
+.booking-form {
+    padding: 32px;
+    background: #fff;
+    border: 1px solid #eadfd5;
+    box-shadow: 0 12px 40px #59463b0a;
+}
+
+.booking-form label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    margin: 15px 0 7px;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+    width: 100%;
+    padding: 13px 12px;
+    border: 1px solid #e5d9cf;
+    background: #fffdfa;
+    border-radius: 2px;
+    color: var(--ink);
+    font: 13px "DM Sans", sans-serif;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+    outline: 1px solid var(--terra);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.button-submit {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.form-hint {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+
+/* ================================
+   CONTATO
+================================ */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.contact-card {
+    padding: clamp(25px, 4vw, 48px);
+    background: var(--cream);
+}
+
+.contact-card h2 {
+    font-size: 35px;
+}
+
+.contact-card p {
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.contact-line {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 17px 0;
+    border-bottom: 1px solid #dfd2c8;
+    font-size: 12px;
+}
+
+.contact-line span {
+    color: var(--terra-dark);
+}
+
+.location-card {
+    background: #f3ebe4;
+}
+
+.location-card .button {
+    margin: 8px 0 20px;
+}
+
+.map-placeholder {
+    height: 150px;
+    background: linear-gradient(135deg, #e8d9ca, #f7f1ea);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #987b69;
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    text-align: center;
+    padding: 15px;
+}
+
+.map-placeholder span {
+    font: 11px "DM Sans", sans-serif;
+    letter-spacing: 0;
+    margin-top: 8px;
+}
+
+
+/* ================================
+   RODAPÉ
+================================ */
+
+.site-footer {
+    background: #4e4542;
+    color: #f9f3ed;
+    text-align: center;
+    padding: 48px 20px 25px;
+}
+
+.footer-brand img {
+    width: 140px;
+    height: 65px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+}
+
+.site-footer p {
+    font-family: "Playfair Display", serif;
+    color: #e3c9b5;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin: 22px 0;
+    font-size: 12px;
+}
+
+.footer-links a:hover {
+    color: #e5bd98;
+}
+
+.site-footer small {
+    font-size: 10px;
+    color: #cbbdb5;
+}
+
+
+/* ================================
+   WHATSAPP FLUTUANTE
+================================ */
+
+.whatsapp-float {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #268b62;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 27px;
+    box-shadow: 0 5px 20px #0002;
+    z-index: 30;
+}
+
+
+/* ================================
+   RESPONSIVIDADE - TABLETS
+================================ */
+
+@media (max-width: 900px) {
+
+    .site-header {
+        gap: 12px;
+    }
+
+    .main-nav {
+        gap: 13px;
+    }
+
+    .main-nav a {
+        font-size: 11px;
+    }
+
+    .site-header>.button {
+        display: none;
+    }
+
+    .hero-copy {
+        padding: 55px 35px;
+    }
+
+    .treatment-grid,
+    .full-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* ================================
+   RESPONSIVIDADE - CELULARES
+================================ */
+
+@media (max-width: 680px) {
+
+    .site-header {
+        height: 72px;
+        padding: 8px 18px;
+    }
+
+    .brand img {
+        width: 120px;
+        height: 54px;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 71px;
+        left: 0;
+        right: 0;
+        background: #fffdfa;
+        padding: 18px 24px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        border-bottom: 1px solid #eee0d5;
+        box-shadow: 0 10px 18px #0000000a;
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .main-nav a {
+        font-size: 13px;
+        width: 100%;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-copy {
+        padding: 55px 25px 40px;
+    }
+
+    .hero-image {
+        min-height: 420px;
+        max-height: 520px;
+    }
+
+    .intro-section,
+    .about-preview,
+    .profile-layout,
+    .booking-layout,
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 24px;
+    }
+
+    .intro-section {
+        gap: 12px;
+    }
+
+    .treatment-grid,
+    .full-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .treatment-card {
+        min-height: 205px;
+    }
+
+    .about-preview>img {
+        max-height: 430px;
+    }
+
+    .cta-band {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 38px 24px;
+    }
+
+    .cta-band h2 {
+        font-size: 32px;
+    }
+
+    .page-hero {
+        padding: 58px 20px;
+    }
+
+    .profile-photo {
+        max-height: 500px;
+    }
+
+    .booking-form {
+        padding: 22px 17px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .contact-line {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .footer-links {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+}
